@@ -1,0 +1,10 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "打卡和记录系统",
+  "usingComponents": {
+    "list-cell": "/components/oa-list-cell/index",
+    "oa-swipe-dot": "/components/oa-swipe-dot/index",
+    "rf-swiper-slide": "/components/oa-swiper-slide/index",
+    "oa-empty": "/components/oa-empty/index"
+  }
+}

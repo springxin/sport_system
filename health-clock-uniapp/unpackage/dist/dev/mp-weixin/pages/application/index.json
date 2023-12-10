@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "应用中心",
+  "usingComponents": {
+    "list-cell": "/components/oa-list-cell/index"
+  }
+}

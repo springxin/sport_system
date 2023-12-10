@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "食物列表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "oa-empty": "/components/oa-empty/index"
+  }
+}

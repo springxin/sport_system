@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.health.system.mapper.PPunchClockMapper">
+    
+    <resultMap type="PPunchClock" id="PPunchClockResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="intakeCalorie"    column="intake_calorie"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="consumeCalorie"    column="consume_calorie"    />
+        <result property="exerciseType"    column="exercise_type"    />
+        <result property="eatFoot"    column="eat_foot"    />
+        <association property="pExercise"    column="id" javaType="PExercise" resultMap="pExerciseResult" />
+
+    </resultMap>
+
+    <resultMap type="PExercise" id="pExerciseResult">
+        <result property="id"    column="id"    />
+        <result property="exerciseName"    column="exercise_name"    />
+    </resultMap>
+
+    <sql id="selectPPunchClockVo">
+        SELECT
+            *
+        FROM
+            p_punch_clock t1
+                LEFT JOIN p_exercise t2 ON t1.exercise_type = t2.id
+    </sql>
+
+    <select id="selectPPunchClockList" parameterType="PPunchClock" resultMap="PPunchClockResult">
+        <include refid="selectPPunchClockVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="intakeCalorie != null "> and intake_calorie = #{intakeCalorie}</if>
+            <if test="consumeCalorie != null "> and consume_calorie = #{consumeCalorie}</if>
+            <if test="exerciseType != null "> and exercise_type = #{exerciseType}</if>
+            <if test="eatFoot != null  and eatFoot != ''"> and eat_foot = #{eatFoot}</if>
+        </where>
+    </select>
+
+    <select id="selectPPunchClockStatisticsList" parameterType="PPunchClock" resultMap="PPunchClockResult">
+        <include refid="selectPPunchClockVo"/>
+        <where>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+    
+    <select id="selectPPunchClockById" parameterType="Long" resultMap="PPunchClockResult">
+        <include refid="selectPPunchClockVo"/>
+        where t1.id = #{t1.id}
+    </select>
+        
+    <insert id="insertPPunchClock" parameterType="PPunchClock" useGeneratedKeys="true" keyProperty="id">
+        insert into p_punch_clock
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="userName != null and userName != ''">user_name,</if>
+            <if test="intakeCalorie != null">intake_calorie,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="consumeCalorie != null">consume_calorie,</if>
+            <if test="exerciseType != null">exercise_type,</if>
+            <if test="eatFoot != null and eatFoot != ''">eat_foot,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="userName != null and userName != ''">#{userName},</if>
+            <if test="intakeCalorie != null">#{intakeCalorie},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="consumeCalorie != null">#{consumeCalorie},</if>
+            <if test="exerciseType != null">#{exerciseType},</if>
+            <if test="eatFoot != null and eatFoot != ''">#{eatFoot},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePPunchClock" parameterType="PPunchClock">
+        update p_punch_clock
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="userName != null and userName != ''">user_name = #{userName},</if>
+            <if test="intakeCalorie != null">intake_calorie = #{intakeCalorie},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="consumeCalorie != null">consume_calorie = #{consumeCalorie},</if>
+            <if test="exerciseType != null">exercise_type = #{exerciseType},</if>
+            <if test="eatFoot != null and eatFoot != ''">eat_foot = #{eatFoot},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePPunchClockById" parameterType="Long">
+        delete from p_punch_clock where id = #{id}
+    </delete>
+
+    <delete id="deletePPunchClockByIds" parameterType="String">
+        delete from p_punch_clock where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,13 @@
+{
+  "component": true,
+  "usingComponents": {
+    "loop": "/components/oa-loading/loaders/loop",
+    "bounce": "/components/oa-loading/loaders/bounce",
+    "double-bounce": "/components/oa-loading/loaders/double-bounce",
+    "double-cube": "/components/oa-loading/loaders/double-cube",
+    "double-dot": "/components/oa-loading/loaders/double-dot",
+    "rotate-plane": "/components/oa-loading/loaders/rotate-plane",
+    "scale-out": "/components/oa-loading/loaders/scale-out",
+    "shrink-rect": "/components/oa-loading/loaders/shrink-rect"
+  }
+}

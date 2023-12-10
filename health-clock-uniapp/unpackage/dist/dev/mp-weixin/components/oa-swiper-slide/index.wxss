@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+.oa-swiper-slide.data-v-687e69cf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+}
+.oa-swiper-slide .oa-swiper.data-v-687e69cf {
+  height: 100%;
+  flex: 1;
+  margin-left: 30rpx;
+}
+.oa-swiper-slide .oa-swiper .oa-swiper-item.data-v-687e69cf {
+  display: flex;
+  justify-content: space-between;
+}
+.oa-swiper-slide .oa-swiper .oa-swiper-item .text.data-v-687e69cf,
+.oa-swiper-slide .oa-swiper .oa-swiper-item .iconfont.data-v-687e69cf {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.oa-swiper-slide .oa-swiper .oa-swiper-item .iconfont.data-v-687e69cf {
+  color: #909399;
+}
+

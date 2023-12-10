@@ -1,0 +1,32 @@
+
+.mask.data-v-3f5bce82 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 3000;
+	transition: opacity 0.3s linear;
+}
+.full-screen.data-v-3f5bce82 {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.spinner.data-v-3f5bce82 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+}
+.fade-enter-active.data-v-3f5bce82,
+.fade-leave-active.data-v-3f5bce82 {
+	transition: opacity 0.3s;
+}
+.fade-enter.data-v-3f5bce82,
+.fade-leave-to.data-v-3f5bce82 {
+	opacity: 0;
+}
+

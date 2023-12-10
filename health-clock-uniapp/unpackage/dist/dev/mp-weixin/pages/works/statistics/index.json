@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "卡路里消耗与摄入统计",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "qiun-data-charts": "/components/qiun-data-charts/qiun-data-charts"
+  }
+}

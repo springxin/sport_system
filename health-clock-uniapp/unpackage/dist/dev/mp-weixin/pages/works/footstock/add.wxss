@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+page {
+  background-color: #f8f8f8;
+}
+.cu-form-group {
+  border-style: none;
+  background-color: #f8f8f8;
+  padding: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/*表单标题*/
+.input-t {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.tit {
+  width: 80%;
+  font-size: 26rpx;
+  color: #606266;
+}
+.input-quick {
+  position: relative;
+  padding-right: 40rpx;
+}
+.input-quick .iconfont {
+  font-size: 24rpx;
+}
+.input-body {
+  background: #fff;
+  padding: 10rpx 20rpx;
+}
+.input-body .gender-item {
+  margin-right: 20rpx;
+}
+.input-body .gender-item .gender-item-text {
+  padding-left: 10rpx;
+}
+.input-textare {
+  height: 200rpx;
+  font-size: 34rpx;
+  line-height: 50rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 0;
+}
+.covers-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.covers-body {
+  background: #fff;
+  padding: 10rpx 20rpx;
+}
+.covers-body .gender-item {
+  margin-right: 20rpx;
+}
+.covers-body .gender-item .gender-item-text {
+  padding-left: 10rpx;
+}
+.covers-body .gender-item radio .wx-radio-input.wx-radio-input-checked {
+  background: #fa436a;
+  border-color: #fa436a;
+}
+.covers-uploader {
+  padding: 22rpx 20rpx;
+}
+

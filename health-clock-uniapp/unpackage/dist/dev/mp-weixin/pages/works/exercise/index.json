@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "运动列表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "oa-empty": "/components/oa-empty/index"
+  }
+}

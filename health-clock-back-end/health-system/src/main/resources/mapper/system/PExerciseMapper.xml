@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.health.system.mapper.PExerciseMapper">
+    
+    <resultMap type="PExercise" id="PExerciseResult">
+        <result property="id"    column="id"    />
+        <result property="exerciseName"    column="exercise_name"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectPExerciseVo">
+        select id, exercise_name, create_by, create_time from p_exercise
+    </sql>
+
+    <select id="selectPExerciseList" parameterType="PExercise" resultMap="PExerciseResult">
+        <include refid="selectPExerciseVo"/>
+        <where>  
+            <if test="exerciseName != null  and exerciseName != ''"> and exercise_name like concat('%', #{exerciseName}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectPExerciseById" parameterType="Long" resultMap="PExerciseResult">
+        <include refid="selectPExerciseVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectPExerciseByExerciseNameAdd" parameterType="PExercise" resultMap="PExerciseResult">
+        <include refid="selectPExerciseVo"/>
+        where exercise_name = #{exerciseName}
+    </select>
+
+    <select id="selectPExerciseByExerciseNameEdit" parameterType="PExercise" resultMap="PExerciseResult">
+        <include refid="selectPExerciseVo"/>
+        where exercise_name = #{exerciseName} and id <![CDATA[ <> ]]> #{id}
+    </select>
+        
+    <insert id="insertPExercise" parameterType="PExercise">
+        insert into p_exercise
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="exerciseName != null and exerciseName != ''">exercise_name,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="exerciseName != null and exerciseName != ''">#{exerciseName},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePExercise" parameterType="PExercise">
+        update p_exercise
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="exerciseName != null and exerciseName != ''">exercise_name = #{exerciseName},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePExerciseById" parameterType="Long">
+        delete from p_exercise where id = #{id}
+    </delete>
+
+    <delete id="deletePExerciseByIds" parameterType="String">
+        delete from p_exercise where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

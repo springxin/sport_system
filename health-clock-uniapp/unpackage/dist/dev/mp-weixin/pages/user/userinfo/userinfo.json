@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "个人资料",
+  "usingComponents": {
+    "avatar": "/components/oa-avatar/oa-avatar",
+    "rf-pick-regions": "/components/oa-pick-regions/index"
+  }
+}

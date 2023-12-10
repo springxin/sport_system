@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "打卡记录",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "oa-empty": "/components/oa-empty/index"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "rf-top-dropdown": "/components/oa-top-dropdown/index"
+  }
+}
